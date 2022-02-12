@@ -13,6 +13,7 @@ body {
   margin: 0;
 }
 
+/* --------------- DEFINE THE GRID'S GAME AREA --------------- */
 .board {
   width: 100vw;
   height: 100vh;
@@ -66,7 +67,7 @@ body {
   cursor: not-allowed;
 }
 
-/* --------------- Create X - mark & X's shadow mark--------------- */
+/* --------------- DEFINE MARK'S COLORS--------------- */
 .cell.x::before,
 .cell.x::after {
   background-color: red;
@@ -76,7 +77,8 @@ body {
 .cell.circle::after {
   background-color: black;
 }
-/* --------------- SHOW THE SHADOW ON HOVER --------------- */
+
+/* --------------- SHOW SHADOWS ON HOVER --------------- */
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
@@ -84,6 +86,7 @@ body {
   background-color: lightgrey;
 }
 
+/* --------------- CREATE X-MARK & X'S SHADOW MARK--------------- */
 .cell.x::before,
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before, /* Interdit le shadow au survol sur des cases déjà marquées */
@@ -104,7 +107,7 @@ body {
   transform: rotate(-45deg);
 }
 
-/* --------------- Create Circle - mark --------------- */
+/* --------------- CREATE CIRCLE-MARK & CIRCLE'S SHADOW MARK--------------- */
 .cell.circle::before,
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
@@ -127,4 +130,38 @@ body {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: white;
+}
+
+/* --------------- DEFINE THE WINNING MESSAGE --------------- */
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.winning-message button {
+  font-size: 3rem;
+  background-color: white;
+  border: solid 1px black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.winning-message button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.winning-message.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
 }
