@@ -1,0 +1,99 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+  margin: 0;
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid yellowgreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Remove the top border of my grid */
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+/* Remove the left border of my grid */
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+/* Remove the right border of my grid */
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+/* Remove the bottom border of my grid */
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: none;
+}
+
+/* Create X - mark */
+.cell.x::before,
+.cell.x::after {
+  background-color: red;
+  content: "";
+  position: absolute; /* Aligne correctement les deux barres du X */
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.cell.x::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after {
+  transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after {
+  background-color: red;
+  content: "";
+  position: absolute; /* Aligne correctement l'anneau et le cercle du circle-mark */
+  border-radius: 50%;
+}
+
+/* Défini l'anneau noir du circle-mark */
+.cell.circle::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: black;
+}
+
+/* Défini le disque blanc au centre du circle-mark */
+.cell.circle::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
+}
