@@ -32,8 +32,10 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
+/* --------------- REMOVE GRID'S BORDERS --------------- */
 /* Remove the top border of my grid */
 .cell:first-child,
 .cell:nth-child(2),
@@ -58,41 +60,70 @@ body {
   border-bottom: none;
 }
 
-/* Create X - mark */
+/* Indicate cells that can't be marked */
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+/* --------------- Create X - mark & X's shadow mark--------------- */
 .cell.x::before,
 .cell.x::after {
   background-color: red;
+}
+
+.cell.circle::before,
+.cell.circle::after {
+  background-color: black;
+}
+/* --------------- SHOW THE SHADOW ON HOVER --------------- */
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  background-color: lightgrey;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before, /* Interdit le shadow au survol sur des cases déjà marquées */
+.board.x .cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute; /* Aligne correctement les deux barres du X */
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
 }
 
-.cell.x::before {
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
   transform: rotate(45deg);
 }
 
-.cell.x::after {
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
   transform: rotate(-45deg);
 }
 
+/* --------------- Create Circle - mark --------------- */
 .cell.circle::before,
-.cell.circle::after {
-  background-color: red;
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute; /* Aligne correctement l'anneau et le cercle du circle-mark */
   border-radius: 50%;
 }
 
-/* Défini l'anneau noir du circle-mark */
-.cell.circle::before {
+/* Define the circle-mark */
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
   width: var(--mark-size);
   height: var(--mark-size);
-  background-color: black;
 }
 
-/* Défini le disque blanc au centre du circle-mark */
-.cell.circle::after {
+/* Define the white disc onto the center of the circle-mark */
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: white;
