@@ -31,10 +31,12 @@ startGame();
 restartButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', newGame);
 
-/*function newGame() {
+function newGame() {
   startGame();
+  xCounter = 0;
+  oCounter = 0;
 }
-*/
+
 function startGame() {
   activePlayer = !activePlayer; // Last player don't start first
   cellElements.forEach((cell) => {
@@ -43,7 +45,7 @@ function startGame() {
     cell.removeEventListener('click', handleClick);
     cell.addEventListener('click', handleClick, { once: true }); // once: true = action au premier click seulement
   });
-  statut.innerHTML = `Le joueur ${activePlayer ? 'O' : 'X'} commence`;
+  statut.innerHTML = `Joueur ${activePlayer ? 'O' : 'X'} commence`;
   setBoardHoverClass();
   winningMessageElement.classList.remove('show');
 }
@@ -70,11 +72,11 @@ function handleClick(e) {
 // Déclenche le message à la fin de la partie
 function endGame(draw) {
   if (draw) {
-    winningMessageTextElement.innerText = 'Egalité !';
+    winningMessageTextElement.innerText = 'Egalité';
   } else {
-    winningMessageTextElement.innerText = `Le joueur ${
+    winningMessageTextElement.innerText = `Joueur ${
       activePlayer ? 'O' : 'X'
-    } a gagné !`;
+    } gagne`;
     if (activePlayer) {
       oCounter += 1;
     } else {

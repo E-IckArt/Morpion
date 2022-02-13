@@ -184,6 +184,13 @@ footer {
   background-color: #172b47ee;
 }
 
+.winning-message .message {
+  background-color: #ffb527;
+  width: 100vw;
+  padding: 1rem 0;
+  color: #172b47;
+}
+
 .winning-message button {
   font-size: 3rem;
   background-color: #ffb527;
@@ -220,12 +227,5 @@ footer {
   grid-template: repeat(2, 100px) / repeat(3, 100px);
   border: solid 2px #ffb527;
   border-radius: 20px;
-  margin-top: 2rem;
-}
-
-.winning-message .message {
-  background-color: #ffb527;
-  width: 100vw;
-  padding: 1rem 0;
-  color: #172b47;
+  margin: 1rem 0;
 }
