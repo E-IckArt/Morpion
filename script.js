@@ -20,14 +20,14 @@ const restartButton = document.getElementById('restartButton');
 const winningMessageTextElement = document.querySelector(
   '[data-winning-message-text]'
 );
-let circleTurn; // Variable pour savoir qui doit jouer
+let activePlayer; // Variable pour savoir qui doit jouer
 
 startGame();
 
 restartButton.addEventListener('click', startGame);
 
 function startGame() {
-  circleTurn = false;
+  activePlayer = false;
   cellElements.forEach((cell) => {
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
@@ -40,7 +40,7 @@ function startGame() {
 
 function handleClick(e) {
   const cell = e.target;
-  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+  const currentClass = activePlayer ? CIRCLE_CLASS : X_CLASS;
   // placeMark
   placeMark(cell, currentClass);
   // Check for Win
@@ -60,9 +60,11 @@ function handleClick(e) {
 // Déclenche le message à la fin de la partie
 function endGame(draw) {
   if (draw) {
-    winningMessageTextElement.innerText = 'Draw !';
+    winningMessageTextElement.innerText = 'Egalité !';
   } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
+    winningMessageTextElement.innerText = `${
+      activePlayer ? 'O' : 'X'
+    } a gagné !`;
   }
   winningMessageElement.classList.add('show');
 }
@@ -82,7 +84,7 @@ function placeMark(cell, currentClass) {
 
 //Change de joueur à chaque tour
 function swapTurns() {
-  circleTurn = !circleTurn;
+  activePlayer = !activePlayer;
 }
 
 // Active les mark's shadows
@@ -90,7 +92,7 @@ function setBoardHoverClass() {
   board.classList.remove(X_CLASS);
   board.classList.remove(CIRCLE_CLASS);
 
-  if (circleTurn) {
+  if (activePlayer) {
     board.classList.add(CIRCLE_CLASS);
   } else {
     board.classList.add(X_CLASS);

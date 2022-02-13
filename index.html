@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="board" id="board">
-      <!--circle-->
+    <header>
+      <h1>Morpion</h1>
+    </header>
+    <section class="board" id="board">
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
@@ -19,12 +21,17 @@
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
-    </div>
-    <div class="winning-message" id="winning-message">
-      <!--show-->
-      <div data-winning-message-text>X WINS !</div>
-      <button id="restartButton">Restart</button>
-    </div>
+    </section>
+    <section>
+      <h2></h2>
+    </section>
+    <section class="winning-message" id="winning-message">
+      <div data-winning-message-text></div>
+      <button id="restartButton">Nouvelle partie</button>
+    </section>
+    <footer>
+      <p>&copy; Février 2022 <br />- Un défi proposé par STUDI -</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

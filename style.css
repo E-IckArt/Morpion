@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Luckiest+Guy&display=swap');
+
 *,
 *::after,
 *::before {
@@ -10,13 +12,53 @@
 }
 
 body {
-  margin: 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #172b47;
+  font-family: 'Comfortaa', cursive;
+  margin: auto;
+}
+
+header {
+  height: 20vh;
+  width: 100%;
+}
+header h1 {
+  color: #ffb527;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 4em;
+  background-color: #172b47;
+  border: solid 3px #e9eaed;
+  border-radius: 20px;
+  margin: 0.5rem 0.5rem;
+}
+
+footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: fit-content;
+  color: #e9eaed;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5eem;
+  background-color: #ffb527;
+}
+
+.button {
+  font-family: 'Comfortaa', cursive;
 }
 
 /* --------------- DEFINE THE GRID'S GAME AREA --------------- */
 .board {
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -28,7 +70,7 @@ body {
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 1px solid yellowgreen;
+  border: 2px solid #ffb527;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,12 +112,12 @@ body {
 /* --------------- DEFINE MARK'S COLORS--------------- */
 .cell.x::before,
 .cell.x::after {
-  background-color: red;
+  background-color: #e9eaed;
 }
 
 .cell.circle::before,
 .cell.circle::after {
-  background-color: black;
+  background-color: #ffb527;
 }
 
 /* --------------- SHOW SHADOWS ON HOVER --------------- */
@@ -83,7 +125,7 @@ body {
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: lightgrey;
+  background-color: #757679e5;
 }
 
 /* --------------- CREATE X-MARK & X'S SHADOW MARK--------------- */
@@ -91,7 +133,7 @@ body {
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before, /* Interdit le shadow au survol sur des cases déjà marquées */
 .board.x .cell:not(.x):not(.circle):hover::after {
-  content: "";
+  content: '';
   position: absolute; /* Aligne correctement les deux barres du X */
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
@@ -112,7 +154,7 @@ body {
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  content: "";
+  content: '';
   position: absolute; /* Aligne correctement l'anneau et le cercle du circle-mark */
   border-radius: 50%;
 }
@@ -129,7 +171,7 @@ body {
 .board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
-  background-color: white;
+  background-color: #172b47;
 }
 
 /* --------------- DEFINE THE WINNING MESSAGE --------------- */
@@ -140,28 +182,31 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #172b47ee;
 }
 
 .winning-message button {
   font-size: 3rem;
-  background-color: white;
-  border: solid 1px black;
+  background-color: #ffb527;
+  border: solid 1px #e9eaed;
+  border-radius: 20px;
+  color: #172b47;
+  margin-top: 3rem;
   padding: 0.25em 0.5em;
   cursor: pointer;
 }
 
 .winning-message button:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
+  background-color: #172b47;
+  color: #ffb527;
+  border-color: #ffb527;
 }
 
 .winning-message.show {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #e9eaed;
   font-size: 5rem;
   flex-direction: column;
 }
