@@ -13,13 +13,14 @@
 
 body {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   background-color: #172b47;
   font-family: 'Comfortaa', cursive;
   margin: auto;
+  height: 100vh;
 }
 
 header {
@@ -36,18 +37,16 @@ header h1 {
   margin: 0.5rem 0.5rem;
 }
 
+h2 {
+  color: #e9eaed;
+}
+
 footer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
-  height: fit-content;
   color: #e9eaed;
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.5eem;
   background-color: #ffb527;
 }
 
@@ -58,7 +57,7 @@ footer {
 /* --------------- DEFINE THE GRID'S GAME AREA --------------- */
 .board {
   width: 100vw;
-  height: 60vh;
+  height: 55vh;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -207,6 +206,6 @@ footer {
   justify-content: center;
   align-items: center;
   color: #e9eaed;
-  font-size: 5rem;
+  font-size: 4rem;
   flex-direction: column;
 }

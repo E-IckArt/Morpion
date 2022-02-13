@@ -13,6 +13,7 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+const statut = document.querySelector('h2');
 const cellElements = document.querySelectorAll('[data-cell]');
 const board = document.getElementById('board');
 const winningMessageElement = document.getElementById('winning-message');
@@ -27,13 +28,14 @@ startGame();
 restartButton.addEventListener('click', startGame);
 
 function startGame() {
-  activePlayer = false;
+  activePlayer = !activePlayer; // Last player don't start first
   cellElements.forEach((cell) => {
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
     cell.removeEventListener('click', handleClick);
     cell.addEventListener('click', handleClick, { once: true }); // once: true = action au premier click seulement
   });
+  statut.innerHTML = `Le joueur ${activePlayer ? 'O' : 'X'} commence`;
   setBoardHoverClass();
   winningMessageElement.classList.remove('show');
 }
@@ -43,7 +45,7 @@ function handleClick(e) {
   const currentClass = activePlayer ? CIRCLE_CLASS : X_CLASS;
   // placeMark
   placeMark(cell, currentClass);
-  // Check for Win
+  // Check for end of game
   if (checkWin(currentClass)) {
     // Check for Win
     endGame(false);
@@ -62,7 +64,7 @@ function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = 'Egalité !';
   } else {
-    winningMessageTextElement.innerText = `${
+    winningMessageTextElement.innerText = `Le joueur ${
       activePlayer ? 'O' : 'X'
     } a gagné !`;
   }
@@ -85,6 +87,8 @@ function placeMark(cell, currentClass) {
 //Change de joueur à chaque tour
 function swapTurns() {
   activePlayer = !activePlayer;
+  //if ()
+  statut.innerHTML = `C'est au tour du joueur ${activePlayer ? 'O' : 'X'}`;
 }
 
 // Active les mark's shadows
