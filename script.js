@@ -22,28 +22,31 @@ const winningMessageTextElement = document.querySelector(
 );
 const restartButton = document.getElementById('restartButton');
 const resetButton = document.getElementById('resetButton');
-let activePlayer; // Variable pour savoir qui doit jouer
+let activePlayer; // to know who's turn it is
 let xCounter = 0;
 let oCounter = 0;
 
-startGame();
+newGame();
 
+// Buttons are ready for action onclick
 restartButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', newGame);
 
+// Actives a new party
 function newGame() {
   startGame();
   xCounter = 0;
   oCounter = 0;
 }
 
+// Actives a new round
 function startGame() {
-  activePlayer = !activePlayer; // Last player don't start first
+  activePlayer = !activePlayer; // Last player don't start first (winner or draw)
   cellElements.forEach((cell) => {
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
     cell.removeEventListener('click', handleClick);
-    cell.addEventListener('click', handleClick, { once: true }); // once: true = action au premier click seulement
+    cell.addEventListener('click', handleClick, { once: true }); // once: true means first click action only
   });
   statut.innerHTML = `Joueur ${activePlayer ? 'O' : 'X'} commence`;
   setBoardHoverClass();
@@ -55,21 +58,21 @@ function handleClick(e) {
   const currentClass = activePlayer ? CIRCLE_CLASS : X_CLASS;
   // placeMark
   placeMark(cell, currentClass);
-  // Check for end of game
+  // Checks for end of game
   if (checkWin(currentClass)) {
-    // Check for Win
+    // Checks for Win
     endGame(false);
   } else if (isDraw()) {
-    // Check for draw
+    // Checks for draw
     endGame(true);
   } else {
-    // Switch Turns & active shadow
+    // Switches Turns & active mark's shadow
     swapTurns();
     setBoardHoverClass();
   }
 }
 
-// Déclenche le message à la fin de la partie
+// Actives end of game's message
 function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = 'Egalité';
@@ -89,7 +92,7 @@ function endGame(draw) {
   winningMessageElement.classList.add('show');
 }
 
-// Vérifie si toutes les cases sont remplies
+// Checks if all boxes are full
 function isDraw() {
   return [...cellElements].every((cell) => {
     return (
@@ -97,19 +100,19 @@ function isDraw() {
     );
   });
 }
-//Mark la case au click et interdit le marquage d'une case déjà occupée
+//Marks box onclick and forbid marks on taken boxes
 function placeMark(cell, currentClass) {
   cell.classList.add(currentClass);
 }
 
-//Change de joueur à chaque tour
+//Switches players at every turn
 function swapTurns() {
   activePlayer = !activePlayer;
   //if ()
   statut.innerHTML = `C'est au tour du joueur ${activePlayer ? 'O' : 'X'}`;
 }
 
-// Active les mark's shadows
+// Actives mark's shadows
 function setBoardHoverClass() {
   board.classList.remove(X_CLASS);
   board.classList.remove(CIRCLE_CLASS);
@@ -121,7 +124,7 @@ function setBoardHoverClass() {
   }
 }
 
-// Vérifie s'il y a une combinaison gagnante
+// Checks if there is a winning combination
 function checkWin(currentClass) {
   return WINNING_COMBINATIONS.some((combination) => {
     return combination.every((index) => {

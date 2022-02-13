@@ -43,15 +43,29 @@ h2 {
 
 footer {
   width: 100vw;
-  color: #e9eaed;
+  color: #172b47;
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   background-color: #ffb527;
+  text-shadow: 2px 2px 6px #e9eaed;
 }
 
 .button {
   font-family: 'Comfortaa', cursive;
+}
+
+.scoresTable {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template: repeat(2, 100px) / repeat(3, 100px);
+  border: solid 3px #ffb527;
+  border-radius: 20px;
+  margin: 1rem 0;
+  box-shadow: 0px 0px 8px #e9eaed;
 }
 
 /* --------------- DEFINE THE GRID'S GAME AREA --------------- */
@@ -216,16 +230,4 @@ footer {
   align-items: center;
   color: #e9eaed;
   font-size: 4rem;
-}
-
-.scoresTable {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  align-items: center;
-  grid-template: repeat(2, 100px) / repeat(3, 100px);
-  border: solid 2px #ffb527;
-  border-radius: 20px;
-  margin: 1rem 0;
 }
