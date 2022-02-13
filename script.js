@@ -17,10 +17,11 @@ const statut = document.querySelector('h2');
 const cellElements = document.querySelectorAll('[data-cell]');
 const board = document.getElementById('board');
 const winningMessageElement = document.getElementById('winning-message');
-const restartButton = document.getElementById('restartButton');
 const winningMessageTextElement = document.querySelector(
   '[data-winning-message-text]'
 );
+const restartButton = document.getElementById('restartButton');
+const resetButton = document.getElementById('resetButton');
 let activePlayer; // Variable pour savoir qui doit jouer
 let xCounter = 0;
 let oCounter = 0;
@@ -28,7 +29,12 @@ let oCounter = 0;
 startGame();
 
 restartButton.addEventListener('click', startGame);
+resetButton.addEventListener('click', newGame);
 
+/*function newGame() {
+  startGame();
+}
+*/
 function startGame() {
   activePlayer = !activePlayer; // Last player don't start first
   cellElements.forEach((cell) => {

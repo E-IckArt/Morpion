@@ -26,11 +26,23 @@
       <div class="cell" data-cell></div>
     </section>
     <section class="winning-message" id="winning-message">
-      <div data-winning-message-text></div>
-      <div>X | O</div>
-      <div id="xCounter">0</div>
-      <div id="oCounter">0</div>
-      <button id="restartButton">Nouvelle partie</button>
+      <div data-winning-message-text class="message"></div>
+      <div class="scoresTable">
+        <div>X</div>
+        <div>vs</div>
+        <div>O</div>
+        <div id="xCounter">0</div>
+        <div>-</div>
+        <div id="oCounter">0</div>
+      </div>
+      <nav>
+        <button id="restartButton" aria-label="Accéder à la manche suivante">
+          Manche suivante
+        </button>
+        <button id="resetButton" aria-label="Commencer une nouvelle partie">
+          Nouvelle partie
+        </button>
+      </nav>
     </section>
     <footer>
       <p>&copy; Février 2022</p>

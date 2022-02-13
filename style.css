@@ -190,8 +190,9 @@ footer {
   border: solid 1px #e9eaed;
   border-radius: 20px;
   color: #172b47;
-  margin-top: 3rem;
-  padding: 0.25em 0.5em;
+  width: 70%;
+  margin-top: 2rem;
+  padding: 0.25em 0.25em;
   cursor: pointer;
 }
 
@@ -203,9 +204,28 @@ footer {
 
 .winning-message.show {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   color: #e9eaed;
   font-size: 4rem;
-  flex-direction: column;
+}
+
+.scoresTable {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template: repeat(2, 100px) / repeat(3, 100px);
+  border: solid 2px #ffb527;
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+.winning-message .message {
+  background-color: #ffb527;
+  width: 100vw;
+  padding: 1rem 0;
+  color: #172b47;
 }
