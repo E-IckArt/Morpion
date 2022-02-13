@@ -22,6 +22,8 @@ const winningMessageTextElement = document.querySelector(
   '[data-winning-message-text]'
 );
 let activePlayer; // Variable pour savoir qui doit jouer
+let xCounter = 0;
+let oCounter = 0;
 
 startGame();
 
@@ -67,7 +69,15 @@ function endGame(draw) {
     winningMessageTextElement.innerText = `Le joueur ${
       activePlayer ? 'O' : 'X'
     } a gagné !`;
+    if (activePlayer) {
+      oCounter += 1;
+    } else {
+      xCounter += 1;
+    }
+    document.getElementById('xCounter').innerHTML = xCounter;
+    document.getElementById('oCounter').innerHTML = oCounter;
   }
+
   winningMessageElement.classList.add('show');
 }
 
