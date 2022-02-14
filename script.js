@@ -23,8 +23,8 @@ const winningMessageTextElement = document.querySelector(
 const restartButton = document.getElementById('restartButton');
 const resetButton = document.getElementById('resetButton');
 let activePlayer; // to know who's turn it is
-let xCounter = 0;
-let oCounter = 0;
+let xCounter = 0; // to know the number of rounds won by player X
+let oCounter = 0; // to know the number of rounds won by player O
 
 newGame();
 
@@ -50,9 +50,11 @@ function startGame() {
   });
   statut.textContent = `Joueur ${activePlayer ? 'O' : 'X'} commence`;
   setBoardHoverClass();
+  // Removes the show class which disables the message
   winningMessageElement.classList.remove('show');
 }
 
+// Triggers actions on click
 function handleClick(e) {
   const cell = e.target;
   const currentClass = activePlayer ? CIRCLE_CLASS : X_CLASS;
@@ -72,7 +74,7 @@ function handleClick(e) {
   }
 }
 
-// Actives end of game's message
+// Actives a different end of game's message, depending on game state
 function endGame(draw) {
   if (draw) {
     winningMessageTextElement.textContent = 'Egalité';
@@ -80,15 +82,13 @@ function endGame(draw) {
     winningMessageTextElement.textContent = `Joueur ${
       activePlayer ? 'O' : 'X'
     } gagne`;
-    if (activePlayer) {
-      oCounter += 1;
-    } else {
-      xCounter += 1;
-    }
+    // Increments the correct counter depending on the active player
+    activePlayer ? oCounter++ : xCounter++;
+    // Displays counter status
     document.getElementById('xCounter').textContent = xCounter;
     document.getElementById('oCounter').textContent = oCounter;
   }
-
+  // Adds the .show class to the .winning-message class which activates the message
   winningMessageElement.classList.add('show');
 }
 
