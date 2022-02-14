@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Luckiest+Guy&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #172b47;
+  font-family: 'Comfortaa', cursive;
+  margin: auto;
+  height: 100vh;
+}
+
+header {
+  height: 20vh;
+  width: 100%;
+}
+header h1 {
+  color: #ffb527;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 4em;
+  background-color: #172b47;
+  border: solid 3px #e9eaed;
+  border-radius: 20px;
+  margin: 0.5rem 0.5rem;
+}
+
+section nav li {
+  list-style-type: none;
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
+
+section nav a {
+  color: #e9eaed;
+  text-decoration: none;
+}
+
+footer {
+  width: 100vw;
+  color: #172b47;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #ffb527;
+  padding: 0.5rem 0;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+footer a {
+  color: #172b47;
+}
