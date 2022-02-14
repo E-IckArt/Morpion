@@ -48,7 +48,7 @@ function startGame() {
     cell.removeEventListener('click', handleClick);
     cell.addEventListener('click', handleClick, { once: true }); // once: true means first click action only
   });
-  statut.innerHTML = `Joueur ${activePlayer ? 'O' : 'X'} commence`;
+  statut.textContent = `Joueur ${activePlayer ? 'O' : 'X'} commence`;
   setBoardHoverClass();
   winningMessageElement.classList.remove('show');
 }
@@ -75,9 +75,9 @@ function handleClick(e) {
 // Actives end of game's message
 function endGame(draw) {
   if (draw) {
-    winningMessageTextElement.innerText = 'Egalité';
+    winningMessageTextElement.textContent = 'Egalité';
   } else {
-    winningMessageTextElement.innerText = `Joueur ${
+    winningMessageTextElement.textContent = `Joueur ${
       activePlayer ? 'O' : 'X'
     } gagne`;
     if (activePlayer) {
@@ -85,8 +85,8 @@ function endGame(draw) {
     } else {
       xCounter += 1;
     }
-    document.getElementById('xCounter').innerHTML = xCounter;
-    document.getElementById('oCounter').innerHTML = oCounter;
+    document.getElementById('xCounter').textContent = xCounter;
+    document.getElementById('oCounter').textContent = oCounter;
   }
 
   winningMessageElement.classList.add('show');
@@ -109,7 +109,7 @@ function placeMark(cell, currentClass) {
 function swapTurns() {
   activePlayer = !activePlayer;
   //if ()
-  statut.innerHTML = `C'est au tour du joueur ${activePlayer ? 'O' : 'X'}`;
+  statut.textContent = `C'est au tour du joueur ${activePlayer ? 'O' : 'X'}`;
 }
 
 // Actives mark's shadows
