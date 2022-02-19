@@ -220,7 +220,7 @@ footer a {
 
 .winning-message button {
   font-family: 'Comfortaa', cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;
   background-color: #ffb527;
   border: outset 2px #e9eaed;
   border-radius: 20px;
@@ -244,13 +244,15 @@ footer a {
   align-items: center;
   color: #e9eaed;
   font-size: 4rem;
+  border: solid 2px #e9eaed;
+  padding: 0.5rem 0.5rem;
 }
 
 .winning-message button img {
-  width: 2vw;
+  width: 40px;
   height: auto;
   position: relative;
-  top: 2px;
+  top: 4px;
   right: 8px;
 }
 

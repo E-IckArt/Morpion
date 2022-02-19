@@ -41,7 +41,8 @@ function newGame() {
 
 // Actives a new round
 function startGame() {
-  activePlayer = !activePlayer; // Last player don't start first (winner or draw)
+  // Last player don't start first (winner or draw)
+  activePlayer = !activePlayer;
   cellElements.forEach((cell) => {
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
@@ -88,7 +89,7 @@ function endGame(draw) {
     document.getElementById('xCounter').textContent = xCounter;
     document.getElementById('oCounter').textContent = oCounter;
   }
-  // Adds the .show class to the .winning-message class which activates the message
+  // Adds the .show class to the .winning-message class to activate the message
   winningMessageElement.classList.add('show');
 }
 
@@ -108,7 +109,6 @@ function placeMark(cell, currentClass) {
 //Switches players at every turn
 function swapTurns() {
   activePlayer = !activePlayer;
-  //if ()
   statut.textContent = `C'est au tour du joueur ${activePlayer ? 'O' : 'X'}`;
 }
 
