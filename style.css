@@ -39,6 +39,7 @@ header h1 {
 
 h2 {
   color: #e9eaed;
+  margin-top: 4rem;
 }
 
 footer {
@@ -161,8 +162,9 @@ footer a {
 .board.x .cell:not(.x):not(.circle):hover::after {
   content: '';
   position: absolute; /* Aligne correctement les deux barres du X */
-  width: calc(var(--mark-size) * 0.15);
+  width: calc(var(--mark-size) * 0.2);
   height: var(--mark-size);
+  border-radius: 20px;
 }
 
 .cell.x::before,
@@ -188,15 +190,15 @@ footer a {
 /* Define the circle-mark */
 .cell.circle::before,
 .board.circle .cell:not(.x):not(.circle):hover::before {
-  width: var(--mark-size);
-  height: var(--mark-size);
+  width: calc(var(--mark-size) * 0.9);
+  height: calc(var(--mark-size) * 0.9);
 }
 
 /* Define the white disc onto the center of the circle-mark */
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  width: calc(var(--mark-size) * 0.7);
-  height: calc(var(--mark-size) * 0.7);
+  width: calc(var(--mark-size) * 0.55);
+  height: calc(var(--mark-size) * 0.55);
   background-color: #172b47;
 }
 
@@ -218,6 +220,8 @@ footer a {
   color: #172b47;
 }
 
+#go,
+#goToGame,
 .winning-message button {
   font-family: 'Comfortaa', cursive;
   font-size: 2.5rem;
@@ -274,4 +278,74 @@ footer a {
   text-decoration: none;
 }
 
+/* --------------- DEFINE GAME RULES SECTION --------------- */
+
+#rules {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1000;
+  background-color: #172b47ee;
+}
+#rules div {
+  width: 390px;
+  height: fit-content;
+  margin: 100px auto;
+  background-color: #ffb527;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 3px solid #ffb527;
+  position: absolute;
+  left: 50%;
+  top: 300px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#rules div h3 {
+  font-size: 2rem;
+}
+
+#go,
+#goToGame {
+  background-color: #172b47;
+  color: #ffb527;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  width: fit-content;
+  margin-top: 0.8rem;
+  padding: 0.25em 0.8em;
+  cursor: pointer;
+}
+
+#go:hover,
+#goToGame:hover {
+  background-color: #172b47;
+  color: #e9eaed;
+  border-color: #ffb527;
+}
+
+#go img {
+  width: 40px;
+  height: auto;
+  position: relative;
+  top: 4px;
+  right: 8px;
+}
+
+#go span {
+  position: relative;
+  bottom: 8px;
+}
 /* TODO - Ajouter les medias-queries */
+/* TODO - Factoriser le code CSS */

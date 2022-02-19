@@ -10,6 +10,39 @@
   <body>
     <header>
       <h1>Morpion</h1>
+      <section>
+        <button id="go">
+          <img
+            src="img\yellow-card.png"
+            src="img\question.png"
+            alt="accès aux règles du jeu"
+          /><span>Règles du jeu</span>
+        </button>
+        <div id="rules">
+          <div>
+            <h3>Règles du Morpion</h3>
+            <p>
+              Le but du jeu est d'aligner ses trois signes en ligne, en colonne
+              ou diagonale.
+            </p>
+            <p>
+              Chaque joueur pose tour à tour un rond, pour l’un, une croix pour
+              l’autre.
+            </p>
+            <p>Les signes une fois posés ne peuvent plus déplacés.</p>
+            <p>
+              Il n'est pas possible de poser son signe dans une case déjà
+              marquée.
+            </p>
+            <p>
+              Manche suivante : chaque manche gagnée rapporte un point. Le
+              perdant commence la manche suivante.
+            </p>
+            <p>Nouvelle partie : les scores sont remis à zéro.</p>
+            <button id="goToGame" onclick="displayGameRules()">Retour</button>
+          </div>
+        </div>
+      </section>
     </header>
     <section>
       <h2></h2>
@@ -49,7 +82,6 @@
     </section>
     <footer>
       <p>&copy; Février 2022</p>
-      <p>- Un défi STUDI réalisé par E.IckArt-</p>
       <p><a href="credits.html">Crédits</a></p>
     </footer>
     <script src="script.js"></script>

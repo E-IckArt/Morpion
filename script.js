@@ -132,3 +132,15 @@ function checkWin(currentClass) {
     });
   }); // Return true if there is any winning combination of the array
 }
+
+// Modal - Game Rules
+
+let go = document.getElementById('go');
+go.addEventListener('click', displayGameRules);
+
+// Display or Hide game rules
+function displayGameRules() {
+  const display = document.getElementById('rules');
+  display.style.visibility =
+    display.style.visibility == 'visible' ? 'hidden' : 'visible';
+}
