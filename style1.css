@@ -1,29 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Luckiest+Guy&display=swap');
-header h1,
-.winning-message button:hover {
-  background-color: #172b47;
-  color: #ffb527;
-}
-
-footer,
-.winning-message .message,
-#go,
-#goToGame,
-.winning-message button {
-  background-color: #ffb527;
-  color: #172b47;
-}
-
-#go:hover,
-#goToGame:hover {
-  background-color: #172b47;
-  color: #e9eaed;
-}
 
 *,
 *::after,
 *::before {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -33,18 +12,9 @@ footer,
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column;
   flex-flow: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-align: center;
   background-color: #172b47;
@@ -57,10 +27,11 @@ header {
   height: 20vh;
   width: 100%;
 }
-
 header h1 {
+  color: #ffb527;
   font-family: 'Luckiest Guy', cursive;
   font-size: 4em;
+  background-color: #172b47;
   border: solid 3px #e9eaed;
   border-radius: 20px;
   margin: 0.5rem 0.5rem;
@@ -73,9 +44,11 @@ h2 {
 
 footer {
   width: 100vw;
+  color: #172b47;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 600;
+  background-color: #ffb527;
   padding: 0.5rem 0;
 }
 
@@ -97,19 +70,11 @@ footer a {
 }
 
 .scoresTable {
-  display: -ms-grid;
   display: grid;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -ms-flex-line-pack: center;
   align-content: center;
   justify-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -ms-grid-rows: (100px) [l2];
-  -ms-grid-columns: (100px) [l3];
   grid-template: repeat(2, 100px) / repeat(3, 100px);
   border: outset 4px #ffb527;
   border-radius: 20px;
@@ -120,18 +85,11 @@ footer a {
 .board {
   width: 100vw;
   height: 55vh;
-  display: -ms-grid;
   display: grid;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -ms-flex-line-pack: center;
   align-content: center;
   justify-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -ms-grid-columns: (auto) [l3];
   grid-template-columns: repeat(3, auto);
 }
 
@@ -139,14 +97,8 @@ footer a {
   width: var(--cell-size);
   height: var(--cell-size);
   border: 2px solid #ffb527;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -205,11 +157,10 @@ footer a {
 /* --------------- CREATE X-MARK & X'S SHADOW MARK--------------- */
 .cell.x::before,
 .cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::before, /* Interdit le shadow au survol sur des cases déjà marquées */
 .board.x .cell:not(.x):not(.circle):hover::after {
   content: '';
-  position: absolute;
-  /* Aligne correctement les deux barres du X */
+  position: absolute; /* Aligne correctement les deux barres du X */
   width: calc(var(--mark-size) * 0.2);
   height: var(--mark-size);
   border-radius: 20px;
@@ -217,13 +168,11 @@ footer a {
 
 .cell.x::before,
 .board.x .cell:not(.x):not(.circle):hover::before {
-  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::after {
-  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -233,8 +182,7 @@ footer a {
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
   content: '';
-  position: absolute;
-  /* Aligne correctement l'anneau et le cercle du circle-mark */
+  position: absolute; /* Aligne correctement l'anneau et le cercle du circle-mark */
   border-radius: 50%;
 }
 
@@ -265,8 +213,10 @@ footer a {
 }
 
 .winning-message .message {
+  background-color: #ffb527;
   width: 100vw;
   padding: 1rem 0;
+  color: #172b47;
 }
 
 #go,
@@ -274,38 +224,32 @@ footer a {
 .winning-message button {
   font-family: 'Comfortaa', cursive;
   font-size: 2.5rem;
+  background-color: #ffb527;
   border: outset 2px #e9eaed;
   border-radius: 20px;
-  -webkit-box-shadow: inset 0px 0px 8px #e9eaed;
-  box-shadow: inset 0px 0px 8px #e9eaed;
+  color: #172b47;
   width: 70%;
   margin-top: 2rem;
   padding: 0.25em 0.25em;
   cursor: pointer;
+  box-shadow: inset 0px 0px 8px #e9eaed;
 }
 
 .winning-message button:hover {
+  background-color: #172b47;
+  color: #ffb527;
   border-color: #e9eaed;
 }
 
 .winning-message.show {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  padding: 0.5rem 0.5rem;
-  font-size: 4rem;
   color: #e9eaed;
+  font-size: 4rem;
   border: solid 2px #e9eaed;
+  padding: 0.5rem 0.5rem;
 }
 
 .winning-message button img {
@@ -317,13 +261,9 @@ footer a {
 }
 
 /* --------------- DEFINE CREDITS.HTML SECTION --------------- */
+
 .credits section nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
   margin: 1rem 1rem;
   padding: 0;
@@ -332,13 +272,14 @@ footer a {
 .credits section nav li,
 .credits section nav a {
   list-style-type: none;
-  text-decoration: none;
   font-size: 1.5rem;
   line-height: 3rem;
   color: #e9eaed;
+  text-decoration: none;
 }
 
 /* --------------- DEFINE GAME RULES SECTION --------------- */
+
 #rules {
   visibility: hidden;
   position: absolute;
@@ -350,11 +291,8 @@ footer a {
   z-index: 1000;
   background-color: #172b47ee;
 }
-
 #rules div {
   width: 390px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   margin: 100px auto;
   background-color: #ffb527;
@@ -365,6 +303,7 @@ footer a {
   text-align: center;
   font-weight: bold;
   font-size: 1.1rem;
+  border: 3px solid #ffb527;
   position: absolute;
   left: 50%;
   top: 300px;
@@ -384,14 +323,17 @@ footer a {
   font-size: 1.5rem;
   border-radius: 15px;
   border: none;
-  -webkit-box-shadow: inset -2px -1px 8px #e9eaed;
   box-shadow: inset -2px -1px 8px #e9eaed;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin-top: 0.8rem;
   padding: 0.25em 0.8em;
   cursor: pointer;
+}
+
+#go:hover,
+#goToGame:hover {
+  background-color: #172b47;
+  color: #e9eaed;
 }
 
 #go img {
@@ -406,7 +348,5 @@ footer a {
   position: relative;
   bottom: 8px;
 }
-
 /* TODO - Ajouter les medias-queries */
 /* TODO - Factoriser le code CSS */
-/*# sourceMappingURL=style.css.map */

@@ -1,29 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Luckiest+Guy&display=swap');
-header h1,
-.winning-message button:hover {
-  background-color: #172b47;
-  color: #ffb527;
+
+$dark-blue: #172b47;
+$yellow: #ffb527;
+$light-grey: #e9eaed;
+$grey: #757679e5;
+
+%style1 {
+  background-color: $dark-blue;
+  color: $yellow;
 }
 
-footer,
-.winning-message .message,
-#go,
-#goToGame,
-.winning-message button {
-  background-color: #ffb527;
-  color: #172b47;
+%style2 {
+  background-color: $yellow;
+  color: $dark-blue;
 }
 
-#go:hover,
-#goToGame:hover {
-  background-color: #172b47;
-  color: #e9eaed;
+%style3 {
+  background-color: $dark-blue;
+  color: $light-grey;
+}
+
+@mixin grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 *,
 *::after,
 *::before {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -33,21 +40,12 @@ footer,
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column;
   flex-flow: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-align: center;
-  background-color: #172b47;
+  background-color: $dark-blue;
   font-family: 'Comfortaa', cursive;
   margin: auto;
   height: 100vh;
@@ -57,21 +55,22 @@ header {
   height: 20vh;
   width: 100%;
 }
-
 header h1 {
+  @extend %style1;
   font-family: 'Luckiest Guy', cursive;
   font-size: 4em;
-  border: solid 3px #e9eaed;
+  border: solid 3px $light-grey;
   border-radius: 20px;
   margin: 0.5rem 0.5rem;
 }
 
 h2 {
-  color: #e9eaed;
+  color: $light-grey;
   margin-top: 4rem;
 }
 
 footer {
+  @extend %style2;
   width: 100vw;
   text-align: center;
   font-size: 1.3rem;
@@ -84,34 +83,22 @@ footer p {
 }
 
 footer a {
-  color: #172b47;
+  color: $dark-blue;
 }
 
 .cup {
   width: 10vw;
   min-width: 80px;
   height: auto;
-  border: solid 3px #ffb527;
+  border: solid 3px $yellow;
   border-radius: 40%;
   margin: 1rem 0;
 }
 
 .scoresTable {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  justify-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-grid-rows: (100px) [l2];
-  -ms-grid-columns: (100px) [l3];
+  @include grid;
   grid-template: repeat(2, 100px) / repeat(3, 100px);
-  border: outset 4px #ffb527;
+  border: outset 4px $yellow;
   border-radius: 20px;
   margin: 0.5rem 0;
 }
@@ -120,33 +107,16 @@ footer a {
 .board {
   width: 100vw;
   height: 55vh;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  justify-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-grid-columns: (auto) [l3];
+  @include grid;
   grid-template-columns: repeat(3, auto);
 }
 
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 2px solid #ffb527;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  border: 2px solid $yellow;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -186,12 +156,12 @@ footer a {
 /* --------------- DEFINE MARK'S COLORS--------------- */
 .cell.x::before,
 .cell.x::after {
-  background-color: #e9eaed;
+  background-color: $light-grey;
 }
 
 .cell.circle::before,
 .cell.circle::after {
-  background-color: #ffb527;
+  background-color: $yellow;
 }
 
 /* --------------- SHOW SHADOWS ON HOVER --------------- */
@@ -199,17 +169,16 @@ footer a {
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: #757679e5;
+  background-color: $grey;
 }
 
 /* --------------- CREATE X-MARK & X'S SHADOW MARK--------------- */
 .cell.x::before,
 .cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::before, /* Interdit le shadow au survol sur des cases déjà marquées */
 .board.x .cell:not(.x):not(.circle):hover::after {
   content: '';
-  position: absolute;
-  /* Aligne correctement les deux barres du X */
+  position: absolute; /* Aligne correctement les deux barres du X */
   width: calc(var(--mark-size) * 0.2);
   height: var(--mark-size);
   border-radius: 20px;
@@ -217,13 +186,11 @@ footer a {
 
 .cell.x::before,
 .board.x .cell:not(.x):not(.circle):hover::before {
-  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::after {
-  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -233,8 +200,7 @@ footer a {
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
   content: '';
-  position: absolute;
-  /* Aligne correctement l'anneau et le cercle du circle-mark */
+  position: absolute; /* Aligne correctement l'anneau et le cercle du circle-mark */
   border-radius: 50%;
 }
 
@@ -250,7 +216,7 @@ footer a {
 .board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.55);
   height: calc(var(--mark-size) * 0.55);
-  background-color: #172b47;
+  background-color: $dark-blue;
 }
 
 /* --------------- DEFINE THE WINNING MESSAGE --------------- */
@@ -265,6 +231,7 @@ footer a {
 }
 
 .winning-message .message {
+  @extend %style2;
   width: 100vw;
   padding: 1rem 0;
 }
@@ -272,12 +239,12 @@ footer a {
 #go,
 #goToGame,
 .winning-message button {
+  @extend %style2;
   font-family: 'Comfortaa', cursive;
   font-size: 2.5rem;
-  border: outset 2px #e9eaed;
+  border: outset 2px $light-grey;
   border-radius: 20px;
-  -webkit-box-shadow: inset 0px 0px 8px #e9eaed;
-  box-shadow: inset 0px 0px 8px #e9eaed;
+  box-shadow: inset 0px 0px 8px $light-grey;
   width: 70%;
   margin-top: 2rem;
   padding: 0.25em 0.25em;
@@ -285,27 +252,19 @@ footer a {
 }
 
 .winning-message button:hover {
-  border-color: #e9eaed;
+  @extend %style1;
+  border-color: $light-grey;
 }
 
 .winning-message.show {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding: 0.5rem 0.5rem;
   font-size: 4rem;
-  color: #e9eaed;
-  border: solid 2px #e9eaed;
+  color: $light-grey;
+  border: solid 2px $light-grey;
 }
 
 .winning-message button img {
@@ -317,13 +276,9 @@ footer a {
 }
 
 /* --------------- DEFINE CREDITS.HTML SECTION --------------- */
+
 .credits section nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
   margin: 1rem 1rem;
   padding: 0;
@@ -335,10 +290,11 @@ footer a {
   text-decoration: none;
   font-size: 1.5rem;
   line-height: 3rem;
-  color: #e9eaed;
+  color: $light-grey;
 }
 
 /* --------------- DEFINE GAME RULES SECTION --------------- */
+
 #rules {
   visibility: hidden;
   position: absolute;
@@ -350,14 +306,11 @@ footer a {
   z-index: 1000;
   background-color: #172b47ee;
 }
-
 #rules div {
   width: 390px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   margin: 100px auto;
-  background-color: #ffb527;
+  background-color: $yellow;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -379,19 +332,19 @@ footer a {
 
 #go,
 #goToGame {
-  background-color: #172b47;
-  color: #ffb527;
+  background-color: $dark-blue;
+  color: $yellow;
   font-size: 1.5rem;
   border-radius: 15px;
   border: none;
-  -webkit-box-shadow: inset -2px -1px 8px #e9eaed;
   box-shadow: inset -2px -1px 8px #e9eaed;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin-top: 0.8rem;
   padding: 0.25em 0.8em;
   cursor: pointer;
+  &:hover {
+    @extend %style3;
+  }
 }
 
 #go img {
@@ -406,7 +359,5 @@ footer a {
   position: relative;
   bottom: 8px;
 }
-
 /* TODO - Ajouter les medias-queries */
 /* TODO - Factoriser le code CSS */
-/*# sourceMappingURL=style.css.map */
