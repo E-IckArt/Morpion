@@ -22,21 +22,66 @@ const winningMessageTextElement = document.querySelector(
 );
 const restartButton = document.getElementById('restartButton');
 const resetButton = document.getElementById('resetButton');
+const startButton = document.getElementById('startButton');
 let activePlayer; // to know who's turn it is
 let xCounter = 0; // to know the number of rounds won by player X
 let oCounter = 0; // to know the number of rounds won by player O
 
-newGame();
-
 // Buttons are ready for action onclick
 restartButton.addEventListener('click', startGame);
-resetButton.addEventListener('click', newGame);
+//resetButton.addEventListener('click', newGame);
+startButton.addEventListener('click', setPlayersNames);
+resetButton.addEventListener('click', resetGame);
+
+/* Script en test Personalize player's name */
+
+let player1 = document.getElementById('player1');
+let player2 = document.getElementById('player2');
+
+let input1 = document.getElementById('username1');
+let input2 = document.getElementById('username2');
+
+function setPlayersNames() {
+  player1.textContent = !input1.value ? ' Joueur X' : input1.value;
+  player2.textContent = !input2.value ? 'Joueur O' : input2.value;
+
+  player1 = player1.textContent;
+  player2 = player2.textContent;
+  newGame();
+}
+
+function resetGame() {
+  winningMessageElement.classList.remove('show');
+  document.getElementById('setPlayersName').style.display = 'unset';
+  document.getElementById('username1').value = '';
+  document.getElementById('username2').value = '';
+  document.querySelector('h2').textContent = '';
+
+  xCounter = 0;
+  oCounter = 0;
+  changePlayers();
+}
+
+// Allow new players at each new party
+function changePlayers() {
+  player1 = document.getElementById('player1');
+  player2 = document.getElementById('player2');
+  input1 = document.getElementById('username1');
+  input2 = document.getElementById('username2');
+  startButton.addEventListener('click', setPlayersNames);
+  activePlayer = player1;
+}
+
+/* Script fonctionnel */
+
+//newGame();
 
 // Actives a new party
 function newGame() {
-  startGame();
+  winningMessageElement.classList.remove('show');
   xCounter = 0;
   oCounter = 0;
+  startGame();
 }
 
 // Actives a new round
@@ -49,10 +94,18 @@ function startGame() {
     cell.removeEventListener('click', handleClick);
     cell.addEventListener('click', handleClick, { once: true }); // once: true means first click action only
   });
-  statut.textContent = `Joueur ${activePlayer ? 'O' : 'X'} commence`;
+  statut.textContent = `${activePlayer ? player2 : player1} commence`;
   setBoardHoverClass();
   // Removes the show class which disables the message
   winningMessageElement.classList.remove('show');
+  HideNamesSettings();
+}
+
+// Removes Section SetPlayerName
+function HideNamesSettings() {
+  document.getElementById('setPlayersName').style.display = 'none';
+
+  startButton.removeEventListener('click', setPlayersNames);
 }
 
 // Triggers actions on click
@@ -80,14 +133,17 @@ function endGame(draw) {
   if (draw) {
     winningMessageTextElement.textContent = 'Egalité';
   } else {
-    winningMessageTextElement.textContent = `Joueur ${
-      activePlayer ? 'O' : 'X'
+    winningMessageTextElement.textContent = `${
+      activePlayer ? player2 : player1
     } gagne`;
     // Increments the correct counter depending on the active player
     activePlayer ? oCounter++ : xCounter++;
     // Displays counter status
     document.getElementById('xCounter').textContent = xCounter;
     document.getElementById('oCounter').textContent = oCounter;
+    /* Display player's name in tablescore */
+    document.getElementById('perso1').textContent = player1;
+    document.getElementById('perso2').textContent = player2;
   }
   // Adds the .show class to the .winning-message class to activate the message
   winningMessageElement.classList.add('show');
@@ -109,7 +165,7 @@ function placeMark(cell, currentClass) {
 //Switches players at every turn
 function swapTurns() {
   activePlayer = !activePlayer;
-  statut.textContent = `C'est au tour du joueur ${activePlayer ? 'O' : 'X'}`;
+  statut.textContent = `C'est au tour de ${activePlayer ? player2 : player1}`;
 }
 
 // Actives mark's shadows
