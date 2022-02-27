@@ -5,17 +5,19 @@ header h1,
   color: #ffb527;
 }
 
-footer,
 .winning-message .message,
 #go,
 #goToGame,
-.winning-message button {
+.winning-message button,
+footer {
   background-color: #ffb527;
   color: #172b47;
 }
 
+#rules div,
 #go:hover,
-#goToGame:hover {
+#goToGame:hover,
+#startButton:hover {
   background-color: #172b47;
   color: #e9eaed;
 }
@@ -68,23 +70,64 @@ header h1 {
 
 h2 {
   color: #e9eaed;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
-footer {
-  width: 100vw;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 600;
-  padding: 0.5rem 0;
+.playersName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #e9eaed;
+  margin-top: 2rem;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-footer p {
-  margin: 0.5rem 0;
+.playersName p {
+  margin: 0.3rem;
 }
 
-footer a {
-  color: #172b47;
+.playersName p:nth-child(2) {
+  color: #ffb527;
+}
+
+#setPlayersName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #e9eaed;
+  width: 90%;
+}
+
+#setPlayersName div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+#setPlayersName label {
+  margin: 0 1rem;
+}
+
+#startButton {
+  margin-left: 2rem;
 }
 
 .cup {
@@ -108,12 +151,13 @@ footer a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -ms-grid-rows: (100px) [l2];
-  -ms-grid-columns: (100px) [l3];
-  grid-template: repeat(2, 100px) / repeat(3, 100px);
+  -ms-grid-rows: repeat(2, 100px);
+  -ms-grid-columns: 30vw 5vw 30vw;
+  grid-template: repeat(2, 100px) / 30vw 5vw 30vw;
   border: outset 4px #ffb527;
   border-radius: 20px;
   margin: 0.5rem 0;
+  padding: 0 1rem;
 }
 
 /* --------------- DEFINE THE GRID'S GAME AREA --------------- */
@@ -131,7 +175,7 @@ footer a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -ms-grid-columns: (auto) [l3];
+  -ms-grid-columns: repeat(3, auto);
   grid-template-columns: repeat(3, auto);
 }
 
@@ -296,13 +340,12 @@ footer a {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0.5rem 0.5rem;
   font-size: 4rem;
   color: #e9eaed;
   border: solid 2px #e9eaed;
@@ -357,7 +400,6 @@ footer a {
   height: -moz-fit-content;
   height: fit-content;
   margin: 100px auto;
-  background-color: #ffb527;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -374,11 +416,17 @@ footer a {
 }
 
 #rules div h3 {
+  color: #ffb527;
+}
+
+#rules div h3 {
   font-size: 2rem;
 }
 
+/* --------------- DEFINE BUTTONS'S STYLE --------------- */
 #go,
-#goToGame {
+#goToGame,
+#startButton {
   background-color: #172b47;
   color: #ffb527;
   font-size: 1.5rem;
@@ -407,6 +455,24 @@ footer a {
   bottom: 8px;
 }
 
+/* --------------- DEFINE THE FOOTER --------------- */
+
+footer {
+  width: 100vw;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #172b47;
+}
+
 /* TODO - Ajouter les medias-queries */
-/* TODO - Factoriser le code CSS */
 /*# sourceMappingURL=style.css.map */

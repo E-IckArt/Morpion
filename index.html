@@ -38,7 +38,10 @@
               Manche suivante : chaque manche gagnée rapporte un point. Le
               perdant commence la manche suivante.
             </p>
-            <p>Nouvelle partie : les scores sont remis à zéro.</p>
+            <p>
+              Nouvelle partie : les scores et les noms de joueurs sont remis à
+              zéro.
+            </p>
             <button id="goToGame" onclick="displayGameRules()">Retour</button>
           </div>
         </div>
@@ -46,31 +49,40 @@
     </header>
     <!-- Section test personnalisation des noms des joueurs -->
     <section class="playersName">
-      <p class="player1" id="player1"></p>
+      <p class="player1" id="player1">X</p>
       <p>Vs</p>
-      <p class="player2" id="player2"></p>
+      <p class="player2" id="player2">O</p>
     </section>
     <section id="setPlayersName">
-      <h3>
-        Les joueurs par défaut sont X et O . Vous pouvez personnaliser vos noms
-        en remplissant les champs ci-dessous, ou commencer la partie dès
+      <p>
+        Personnalisez vos noms de joueurs, ou commencez la partie dès
         maintenant.
-      </h3>
-      <label for="username1">Player 1</label>
-      <input
-        type="text"
-        id="username1"
-        name="username1"
-        placeholder="joueur 1"
-      />
-      <label for="username2">Player 2</label>
-      <input
-        type="text"
-        id="username2"
-        name="username2"
-        placeholder="joueur 2"
-      />
-      <button id="startButton">Commencer la partie</button>
+      </p>
+      <div>
+        <div>
+          <label for="username1">Player 1</label>
+          <input
+            type="text"
+            maxlength="10"
+            id="username1"
+            name="username1"
+            placeholder="10 caractères max"
+          />
+        </div>
+        <div>
+          <label for="username2">Player 2</label>
+          <input
+            type="text"
+            maxlength="10"
+            id="username2"
+            name="username2"
+            placeholder="10 caractères max"
+          />
+        </div>
+        <div>
+          <button id="startButton">Commencer la partie</button>
+        </div>
+      </div>
     </section>
 
     <!-- Code fonctionnel -->

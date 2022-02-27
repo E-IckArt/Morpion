@@ -55,6 +55,7 @@ header {
   height: 20vh;
   width: 100%;
 }
+
 header h1 {
   @extend %style1;
   font-family: 'Luckiest Guy', cursive;
@@ -66,24 +67,46 @@ header h1 {
 
 h2 {
   color: $light-grey;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
-footer {
-  @extend %style2;
-  width: 100vw;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 600;
-  padding: 0.5rem 0;
+.playersName {
+  display: flex;
+  color: $light-grey;
+  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
-footer p {
-  margin: 0.5rem 0;
+.playersName p {
+  margin: 0.3rem;
 }
 
-footer a {
-  color: $dark-blue;
+.playersName p:nth-child(2) {
+  color: $yellow;
+}
+
+#setPlayersName {
+  display: flex;
+  flex-direction: column;
+  color: $light-grey;
+  width: 90%;
+}
+
+#setPlayersName div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+#setPlayersName label {
+  margin: 0 1rem;
+}
+
+#startButton {
+  margin-left: 2rem;
 }
 
 .cup {
@@ -97,10 +120,11 @@ footer a {
 
 .scoresTable {
   @include grid;
-  grid-template: repeat(2, 100px) / repeat(3, 100px);
+  grid-template: repeat(2, 100px) / 30vw 5vw 30vw;
   border: outset 4px $yellow;
   border-radius: 20px;
   margin: 0.5rem 0;
+  padding: 0 1rem;
 }
 
 /* --------------- DEFINE THE GRID'S GAME AREA --------------- */
@@ -259,9 +283,8 @@ footer a {
 .winning-message.show {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0.5rem 0.5rem;
   font-size: 4rem;
   color: $light-grey;
   border: solid 2px $light-grey;
@@ -307,10 +330,10 @@ footer a {
   background-color: #172b47ee;
 }
 #rules div {
+  @extend %style3;
   width: 390px;
   height: fit-content;
   margin: 100px auto;
-  background-color: $yellow;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -324,6 +347,10 @@ footer a {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
+
+  h3 {
+    color: $yellow;
+  }
 }
 
 #rules div h3 {
@@ -331,7 +358,8 @@ footer a {
 }
 
 #go,
-#goToGame {
+#goToGame,
+#startButton {
   background-color: $dark-blue;
   color: $yellow;
   font-size: 1.5rem;
@@ -359,5 +387,23 @@ footer a {
   position: relative;
   bottom: 8px;
 }
+
+footer {
+  @extend %style2;
+  width: 100vw;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $dark-blue;
+  }
+}
+
 /* TODO - Ajouter les medias-queries */
-/* TODO - Factoriser le code CSS */
