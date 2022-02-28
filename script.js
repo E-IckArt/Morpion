@@ -27,20 +27,17 @@ let activePlayer; // to know who's turn it is
 let xCounter = 0; // to know the number of rounds won by player X
 let oCounter = 0; // to know the number of rounds won by player O
 
-// Buttons are ready for action onclick
-restartButton.addEventListener('click', startGame);
-//resetButton.addEventListener('click', newGame);
-startButton.addEventListener('click', setPlayersNames);
-resetButton.addEventListener('click', resetGame);
-
-/* Script en test Personalize player's name */
-
 let player1 = document.getElementById('player1');
 let player2 = document.getElementById('player2');
-
 let input1 = document.getElementById('username1');
 let input2 = document.getElementById('username2');
 
+// Buttons are ready for action onclick
+restartButton.addEventListener('click', startGame);
+startButton.addEventListener('click', setPlayersNames);
+resetButton.addEventListener('click', resetGame);
+
+// Sets personnalized player names
 function setPlayersNames() {
   player1.textContent = !input1.value ? ' Joueur X' : input1.value;
   player2.textContent = !input2.value ? 'Joueur O' : input2.value;
@@ -49,42 +46,6 @@ function setPlayersNames() {
   player2 = player2.textContent;
   newGame();
 }
-
-function resetGame() {
-  winningMessageElement.classList.remove('show');
-  document.getElementById('setPlayersName').style.display = 'unset';
-  document.getElementById('username1').value = '';
-  document.getElementById('username2').value = '';
-  document.querySelector('h2').textContent = '';
-
-  xCounter = 0;
-  oCounter = 0;
-  changePlayers();
-  disableClickOnBoard();
-}
-
-// Allow new players at each new party
-function changePlayers() {
-  player1 = document.getElementById('player1');
-  player2 = document.getElementById('player2');
-  input1 = document.getElementById('username1');
-  input2 = document.getElementById('username2');
-  startButton.addEventListener('click', setPlayersNames);
-  activePlayer = player1;
-}
-
-// Clear Board & remove HandleClick when players are starting a new game
-function disableClickOnBoard() {
-  cellElements.forEach((cell) => {
-    cell.classList.remove(X_CLASS);
-    cell.classList.remove(CIRCLE_CLASS);
-    cell.removeEventListener('click', handleClick);
-  });
-}
-
-/* Script fonctionnel */
-
-//newGame();
 
 // Actives a new party
 function newGame() {
@@ -199,12 +160,43 @@ function checkWin(currentClass) {
   }); // Return true if there is any winning combination of the array
 }
 
-// Modal - Game Rules
+function resetGame() {
+  winningMessageElement.classList.remove('show');
+  document.getElementById('setPlayersName').style.display = 'unset';
+  document.getElementById('username1').value = '';
+  document.getElementById('username2').value = '';
+  document.querySelector('h2').textContent = '';
+  document.getElementById('player1').textContent = 'Joueur X';
+  document.getElementById('player2').textContent = 'joueur O';
+  xCounter = 0;
+  oCounter = 0;
 
+  changePlayers();
+  disableClickOnBoard();
+}
+
+// Allows new players at each new party
+function changePlayers() {
+  player1 = document.getElementById('player1');
+  player2 = document.getElementById('player2');
+  startButton.addEventListener('click', setPlayersNames);
+  activePlayer = player1;
+}
+
+// Clears Board & removes HandleClick when players are starting a new game
+function disableClickOnBoard() {
+  cellElements.forEach((cell) => {
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(CIRCLE_CLASS);
+    cell.removeEventListener('click', handleClick);
+  });
+}
+
+// Open Game Rules Modal
 let go = document.getElementById('go');
 go.addEventListener('click', displayGameRules);
 
-// Display or Hide game rules
+// Displays or Hides game rules
 function displayGameRules() {
   const display = document.getElementById('rules');
   display.style.visibility =
