@@ -1,26 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Luckiest+Guy&display=swap');
-header h1,
-.winning-message button:hover {
-  background-color: #172b47;
-  color: #ffb527;
-}
-
-.winning-message .message,
-#go,
-#goToGame,
-.winning-message button,
-footer {
-  background-color: #ffb527;
-  color: #172b47;
-}
-
-#rules div,
-#go:hover,
-#goToGame:hover,
-#startButton:hover {
-  background-color: #172b47;
-  color: #e9eaed;
-}
 
 *,
 *::after,
@@ -63,6 +41,8 @@ header {
 header h1 {
   font-family: 'Luckiest Guy', cursive;
   font-size: 4em;
+  background-color: #172b47;
+  color: #ffb527;
   border: solid 3px #e9eaed;
   border-radius: 20px;
   margin: 0.5rem 0.5rem;
@@ -78,7 +58,7 @@ h2 {
   display: -ms-flexbox;
   display: flex;
   color: #e9eaed;
-  margin-top: 2rem;
+  margin-top: 4rem;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -88,10 +68,11 @@ h2 {
 }
 
 .playersName p {
+  font-size: 2rem;
   margin: 0.3rem;
 }
 
-.playersName p:nth-child(2) {
+.playersName p:nth-child(2n + 1) {
   color: #ffb527;
 }
 
@@ -104,7 +85,7 @@ h2 {
   -ms-flex-direction: column;
   flex-direction: column;
   color: #e9eaed;
-  width: 90%;
+  width: 100%;
 }
 
 #setPlayersName div {
@@ -119,45 +100,16 @@ h2 {
   align-items: baseline;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  height: auto;
 }
 
-#setPlayersName label {
-  margin: 0 1rem;
+#setPlayersName p {
+  font-size: 1.2rem;
 }
 
-#startButton {
-  margin-left: 2rem;
-}
-
-.cup {
-  width: 10vw;
-  min-width: 80px;
-  height: auto;
-  border: solid 3px #ffb527;
-  border-radius: 40%;
-  margin: 1rem 0;
-}
-
-.scoresTable {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  justify-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-grid-rows: repeat(2, 100px);
-  -ms-grid-columns: 30vw 5vw 30vw;
-  grid-template: repeat(2, 100px) / 30vw 5vw 30vw;
-  border: outset 4px #ffb527;
-  border-radius: 20px;
-  margin: 0.5rem 0;
-  padding: 0 1rem;
+#setPlayersName div > div,
+#setPlayersName input {
+  font-size: 1.5rem;
+  margin: 0 1.5rem;
 }
 
 /* --------------- DEFINE THE GRID'S GAME AREA --------------- */
@@ -278,7 +230,6 @@ h2 {
 .board.circle .cell:not(.x):not(.circle):hover::after {
   content: '';
   position: absolute;
-  /* Aligne correctement l'anneau et le cercle du circle-mark */
   border-radius: 50%;
 }
 
@@ -313,25 +264,6 @@ h2 {
   padding: 1rem 0;
 }
 
-#go,
-#goToGame,
-.winning-message button {
-  font-family: 'Comfortaa', cursive;
-  font-size: 2.5rem;
-  border: outset 2px #e9eaed;
-  border-radius: 20px;
-  -webkit-box-shadow: inset 0px 0px 8px #e9eaed;
-  box-shadow: inset 0px 0px 8px #e9eaed;
-  width: 70%;
-  margin-top: 2rem;
-  padding: 0.25em 0.25em;
-  cursor: pointer;
-}
-
-.winning-message button:hover {
-  border-color: #e9eaed;
-}
-
 .winning-message.show {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -342,21 +274,56 @@ h2 {
   flex-direction: column;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
-  justify-content: flex-start;
+  justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   font-size: 4rem;
   color: #e9eaed;
-  border: solid 2px #e9eaed;
 }
 
-.winning-message button img {
-  width: 40px;
+.cup {
+  width: 10vw;
+  min-width: 80px;
   height: auto;
-  position: relative;
-  top: 4px;
-  right: 8px;
+  border-radius: 30%;
+  background: linear-gradient(145deg, #192e4c, #152740);
+  box-shadow: 7px 7px 14px #0d1828, -7px -7px 14px #213e66;
+  margin: 1rem 0;
+}
+
+.scoresTable {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  justify-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-grid-rows: repeat(2, 100px);
+  -ms-grid-columns: 30vw 5vw 30vw;
+  grid-template: repeat(2, 100px) / 30vw 5vw 30vw;
+  border: outset 4px #ffb527;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #192e4c, #152740);
+  box-shadow: 7px 7px 14px #0d1828, -7px -7px 14px #213e66;
+  margin: 0.5rem 0;
+  padding: 0 1rem;
+  font-size: 3rem;
+}
+
+.winning-message nav {
+  margin-bottom: 2rem;
+}
+
+.winning-message .message,
+footer {
+  background-color: #ffb527;
+  color: #172b47;
 }
 
 /* --------------- DEFINE CREDITS.HTML SECTION --------------- */
@@ -395,7 +362,7 @@ h2 {
 }
 
 #rules div {
-  width: 390px;
+  width: 400px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -403,16 +370,19 @@ h2 {
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  padding: 15px;
+  padding: 2rem;
   text-align: center;
   font-weight: bold;
   font-size: 1.1rem;
   position: absolute;
   left: 50%;
-  top: 300px;
+  top: 350px;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
+  background: linear-gradient(315deg, #152740, #192e4c);
+  box-shadow: -8px -8px 16px #112035, 8px 8px 16px #1d3659;
+  color: #e9eaed;
 }
 
 #rules div h3 {
@@ -426,23 +396,36 @@ h2 {
 /* --------------- DEFINE BUTTONS'S STYLE --------------- */
 #go,
 #goToGame,
-#startButton {
+#startButton,
+#restartButton,
+#resetButton {
+  font-family: 'Comfortaa', cursive;
   background-color: #172b47;
   color: #ffb527;
   font-size: 1.5rem;
   border-radius: 15px;
-  border: none;
-  -webkit-box-shadow: inset -2px -1px 8px #e9eaed;
-  box-shadow: inset -2px -1px 8px #e9eaed;
+  border: outset 2px #e9eaed;
+  -webkit-box-shadow: inset 0px 0px 8px #e9eaed;
+  box-shadow: inset 0px 0px 8px #e9eaed;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin-top: 0.8rem;
-  padding: 0.25em 0.8em;
+  margin: 2rem 1.25rem 0 1.25rem;
+  padding: 0.5em 1.5em;
   cursor: pointer;
 }
 
-#go img {
+#go:hover,
+#goToGame:hover,
+#startButton:hover,
+#restartButton:hover,
+#resetButton:hover {
+  background-color: #172b47;
+  color: #e9eaed;
+}
+
+#go img,
+.winning-message button img {
   width: 40px;
   height: auto;
   position: relative;
@@ -450,7 +433,8 @@ h2 {
   right: 8px;
 }
 
-#go span {
+#go span,
+.winning-message button span {
   position: relative;
   bottom: 8px;
 }
