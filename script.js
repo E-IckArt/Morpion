@@ -60,6 +60,7 @@ function resetGame() {
   xCounter = 0;
   oCounter = 0;
   changePlayers();
+  disableClickOnBoard();
 }
 
 // Allow new players at each new party
@@ -70,6 +71,15 @@ function changePlayers() {
   input2 = document.getElementById('username2');
   startButton.addEventListener('click', setPlayersNames);
   activePlayer = player1;
+}
+
+// Clear Board & remove HandleClick when players are starting a new game
+function disableClickOnBoard() {
+  cellElements.forEach((cell) => {
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(CIRCLE_CLASS);
+    cell.removeEventListener('click', handleClick);
+  });
 }
 
 /* Script fonctionnel */
