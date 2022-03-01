@@ -40,11 +40,6 @@ body {
 
 header {
   height: 20vh;
-  width: 100vw;
-}
-
-header section {
-  width: 100vw;
 }
 
 header h1 {
@@ -496,9 +491,7 @@ footer a {
   }
 
   html {
-    box-sizing: border-box;
     font-size: 12px;
-    margin: 0;
   }
   body {
     background-color: #172b47;
@@ -507,6 +500,7 @@ footer a {
   }
 
   header {
+    height: 20vh;
     width: 100vw;
   }
 
@@ -523,16 +517,12 @@ footer a {
   }
 
   .playersName {
-    margin-top: 1.8rem;
+    margin-top: 2rem;
   }
 
   .playersName p {
     font-size: 1.5rem;
     margin: 0.5rem;
-  }
-
-  #setPlayersName div {
-    font-size: 2rem;
   }
 
   #setPlayersName p {
@@ -542,7 +532,7 @@ footer a {
 
   #setPlayersName div > div,
   #setPlayersName input {
-    margin: 1rem;
+    margin: 0.5rem 1rem;
   }
 
   /* --------------- DEFINE THE WINNING MESSAGE --------------- */
