@@ -47,78 +47,85 @@
         </div>
       </section>
     </header>
-    <section class="playersName">
-      <p class="player1" id="player1">X</p>
-      <p>Vs</p>
-      <p class="player2" id="player2">O</p>
-    </section>
-    <section id="setPlayersName">
-      <p>
-        Personnalisez vos noms de joueurs, ou commencez la partie dès
-        maintenant.
-      </p>
-      <div>
+    <main>
+      <section class="playersName">
+        <p class="player1" id="player1">X</p>
+        <p>Vs</p>
+        <p class="player2" id="player2">O</p>
+      </section>
+      <section id="setPlayersName">
+        <p>
+          Personnalisez vos noms de joueurs, ou commencez la partie dès
+          maintenant.
+        </p>
         <div>
-          <label for="username1">Player 1</label>
-          <input
-            type="text"
-            maxlength="10"
-            id="username1"
-            name="username1"
-            placeholder="10 caractères max"
-          />
+          <div>
+            <label for="username1">Player 1</label>
+            <input
+              type="text"
+              maxlength="10"
+              id="username1"
+              name="username1"
+              placeholder="10 caractères max"
+            />
+          </div>
+          <div>
+            <label for="username2">Player 2</label>
+            <input
+              type="text"
+              maxlength="10"
+              id="username2"
+              name="username2"
+              placeholder="10 caractères max"
+            />
+          </div>
+          <div>
+            <button id="startButton">Commencer la partie</button>
+          </div>
         </div>
-        <div>
-          <label for="username2">Player 2</label>
-          <input
-            type="text"
-            maxlength="10"
-            id="username2"
-            name="username2"
-            placeholder="10 caractères max"
-          />
+      </section>
+      <section>
+        <h2></h2>
+      </section>
+      <section class="board" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </section>
+      <section class="winning-message" id="winning-message">
+        <div data-winning-message-text class="message"></div>
+        <img
+          src="img\award.gif"
+          alt="Coupe du vainqueur"
+          id="cup"
+          class="cup"
+        />
+        <div class="scoresTable">
+          <div id="perso1"></div>
+          <div></div>
+          <div id="perso2"></div>
+          <div id="xCounter">0</div>
+          <div>-</div>
+          <div id="oCounter">0</div>
         </div>
-        <div>
-          <button id="startButton">Commencer la partie</button>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2></h2>
-    </section>
-    <section class="board" id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </section>
-    <section class="winning-message" id="winning-message">
-      <div data-winning-message-text class="message"></div>
-      <img src="img\award.gif" alt="Coupe du vainqueur" id="cup" class="cup" />
-      <div class="scoresTable">
-        <div id="perso1"></div>
-        <div></div>
-        <div id="perso2"></div>
-        <div id="xCounter">0</div>
-        <div>-</div>
-        <div id="oCounter">0</div>
-      </div>
-      <nav>
-        <button id="restartButton" aria-label="Accéder à la manche suivante">
-          <img src="img\next.png" alt="flèche suivante" />
-          <span>Manche suivante</span>
-        </button>
-        <button id="resetButton" aria-label="Commencer une nouvelle partie">
-          <img src="img\reload.png" alt="flèche recharger" />
-          <span>Nouvelle partie</span>
-        </button>
-      </nav>
-    </section>
+        <nav>
+          <button id="restartButton" aria-label="Accéder à la manche suivante">
+            <img src="img\next.png" alt="flèche suivante" />
+            <span>Manche suivante</span>
+          </button>
+          <button id="resetButton" aria-label="Commencer une nouvelle partie">
+            <img src="img\reload.png" alt="flèche recharger" />
+            <span>Nouvelle partie</span>
+          </button>
+        </nav>
+      </section>
+    </main>
     <footer>
       <p>&copy; Février 2022</p>
       <p><a href="credits.html">Crédits</a></p>
