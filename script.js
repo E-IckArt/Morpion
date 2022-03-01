@@ -20,6 +20,7 @@ const winningMessageElement = document.getElementById('winning-message');
 const winningMessageTextElement = document.querySelector(
   '[data-winning-message-text]'
 );
+const cup = document.getElementById('cup');
 const restartButton = document.getElementById('restartButton');
 const resetButton = document.getElementById('resetButton');
 const startButton = document.getElementById('startButton');
@@ -50,6 +51,7 @@ function setPlayersNames() {
 // Actives a new party
 function newGame() {
   winningMessageElement.classList.remove('show');
+  cup.classList.remove('show');
   xCounter = 0;
   oCounter = 0;
   startGame();
@@ -69,6 +71,7 @@ function startGame() {
   setBoardHoverClass();
   // Removes the show class which disables the message
   winningMessageElement.classList.remove('show');
+  cup.classList.remove('show');
   HideNamesSettings();
 }
 
@@ -107,6 +110,8 @@ function endGame(draw) {
     winningMessageTextElement.textContent = `${
       activePlayer ? player2 : player1
     } gagne`;
+
+    cup.classList.add('show');
     // Increments the correct counter depending on the active player
     activePlayer ? oCounter++ : xCounter++;
     // Displays counter status
@@ -161,6 +166,7 @@ function checkWin(currentClass) {
 }
 
 function resetGame() {
+  cup.classList.remove('show');
   winningMessageElement.classList.remove('show');
   document.getElementById('setPlayersName').style.display = 'unset';
   document.getElementById('username1').value = '';
