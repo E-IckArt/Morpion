@@ -435,7 +435,6 @@ footer {
 
 .winning-message button img {
   border-radius: 40%;
-  background-color: #e9eaede8;
   padding: 8px;
 }
 
@@ -1191,7 +1190,4 @@ footer a {
     bottom: 1rem;
     right: 5px;
   }
-}
-
-@media screen and (min-width: 1681px) {
 }
