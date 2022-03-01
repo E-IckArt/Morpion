@@ -167,7 +167,7 @@ function resetGame() {
   document.getElementById('username2').value = '';
   document.querySelector('h2').textContent = '';
   document.getElementById('player1').textContent = 'Joueur X';
-  document.getElementById('player2').textContent = 'joueur O';
+  document.getElementById('player2').textContent = 'Joueur O';
   xCounter = 0;
   oCounter = 0;
 
