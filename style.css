@@ -944,6 +944,7 @@ footer a {
   #setPlayersName p {
     font-size: 1.2rem;
     margin: 0.8rem 0.5rem;
+    padding: 0.5rem;
   }
 
   #setPlayersName div > div,
