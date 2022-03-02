@@ -909,7 +909,7 @@ footer a {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   :root {
-    --cell-size: 70px;
+    --cell-size: 90px;
     --mark-size: calc(var(--cell-size) * 0.9);
   }
 
