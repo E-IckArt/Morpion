@@ -434,7 +434,6 @@ footer {
 #go img,
 .winning-message button img {
   width: 40px;
-  height: auto;
   position: relative;
   top: 4px;
   right: 8px;
@@ -442,7 +441,6 @@ footer {
 
 .winning-message button img {
   border-radius: 40%;
-  padding: 8px;
 }
 
 #go span,
@@ -817,9 +815,9 @@ footer a {
   }
 
   .scoresTable {
-    -ms-grid-rows: repeat(2, 80px);
+    -ms-grid-rows: repeat(2, 50px);
     -ms-grid-columns: 40vw 5vw 40vw;
-    grid-template: repeat(2, 80px) / 40vw 5vw 40vw;
+    grid-template: repeat(2, 50px) / 40vw 5vw 40vw;
     padding: 0 0.5rem;
     font-size: 2rem;
   }
@@ -888,6 +886,7 @@ footer a {
 
   #restartButton img,
   #resetButton img {
+    width: 20px;
     border-radius: 30%;
     background-color: #e9eaede8;
     padding: 7px;
@@ -1139,40 +1138,36 @@ footer a {
 
 @media screen and (min-width: 981px) and (max-width: 1680px) {
   :root {
-    --cell-size: 90px;
+    --cell-size: 100px;
     --mark-size: calc(var(--cell-size) * 0.9);
   }
 
-  html {
-    box-sizing: border-box;
-    font-size: 16px;
-    margin: 0;
-  }
-  body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-  }
-
-  header {
-    height: 20vh;
-    width: 100vw;
-  }
-
-  header section {
-    width: 100%;
-  }
-
-  h2 {
-    margin: 1rem 0;
+  .playersName {
+    margin: 1rem 0 0;
   }
 
   .playersName p {
     font-size: 1.8rem;
   }
 
+  #setPlayersName {
+    margin: 0 0 1rem;
+  }
+
   #setPlayersName div {
     font-size: 1rem;
+  }
+
+  #setPlayerName p {
+    margin: 0 0 1rem;
+  }
+
+  h2 {
+    margin: 1.5rem 0;
+  }
+
+  #board {
+    height: 45vh;
   }
 
   /* --------------- DEFINE GAME RULES SECTION --------------- */
@@ -1203,15 +1198,20 @@ footer a {
   }
 
   #startButton {
-    margin: 1.5rem 0;
+    margin: 0;
     padding: 0 1rem;
+  }
+
+  #go {
+    margin-bottom: 0;
   }
 
   #go img,
   .winning-message button img {
+    width: 35px;
     position: relative;
     top: -8px;
-    right: 10px;
+    right: 5px;
   }
 
   #go span,
