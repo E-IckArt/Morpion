@@ -909,7 +909,7 @@ footer a {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   :root {
-    --cell-size: 90px;
+    --cell-size: 70px;
     --mark-size: calc(var(--cell-size) * 0.9);
   }
 
@@ -925,7 +925,6 @@ footer a {
   }
 
   header {
-    height: 20vh;
     width: 100vw;
   }
 
@@ -937,23 +936,33 @@ footer a {
     margin: 1rem 0;
   }
 
-  .playersName p {
-    font-size: 1.8rem;
-    margin: 1rem 1.5rem 1.5;
+  .playersName {
+    margin-top: 1vh;
   }
 
-  #setPlayersName div {
-    font-size: 1rem;
+  .playersName p {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
   }
 
   #setPlayersName p {
-    margin: 0.5rem 0.5rem;
-    padding: 1.2rem 0.5rem;
+    font-size: 0.8rem;
+    margin: 0.8rem 0.5rem;
   }
 
   #setPlayersName div > div,
   #setPlayersName input {
-    margin: 0.5rem;
+    font-size: 1.1rem;
+    margin: 0.3rem;
+  }
+
+  #username1,
+  #username2 {
+    width: 100px;
+  }
+
+  footer {
+    font-size: 0.8rem;
   }
 
   /* --------------- DEFINE THE WINNING MESSAGE --------------- */
@@ -963,16 +972,16 @@ footer a {
   }
 
   .scoresTable {
-    -ms-grid-rows: repeat(2, 80px);
+    -ms-grid-rows: repeat(2, 70px);
     -ms-grid-columns: 40vw 5vw 40vw;
-    grid-template: repeat(2, 80px) / 40vw 5vw 40vw;
+    grid-template: repeat(2, 70px) / 40vw 5vw 40vw;
     border: outset 4px #ffb527;
     border-radius: 20px;
     background: linear-gradient(145deg, #192e4c, #152740);
     box-shadow: 7px 7px 14px #0d1828, -7px -7px 14px #213e66;
     margin: 0.5rem 0;
     padding: 0 0.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   /* --------------- DEFINE CREDITS.HTML SECTION --------------- */
@@ -990,7 +999,7 @@ footer a {
     padding: 1.5rem;
     font-size: 1rem;
     position: absolute;
-    top: 310px;
+    top: 300px;
   }
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
@@ -999,28 +1008,21 @@ footer a {
   #startButton,
   #restartButton,
   #resetButton {
-    font-size: 1.8rem;
-    width: 60%;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    min-width: fit-content;
-    margin: 1rem;
-    padding: 1rem;
+    width: 300px;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
   }
 
   #go {
-    height: 10vh;
-  }
-
-  #startButton {
-    margin: 1.8rem 0;
-    height: 15vh;
+    padding: 0.2rem 0;
+    margin: 0.5rem 0 0.2rem 0;
   }
 
   #go img,
   .winning-message button img {
+    width: 15px;
     position: relative;
-    top: -8px;
+    top: 0px;
     right: 10px;
   }
 
@@ -1037,14 +1039,9 @@ footer a {
     padding: 7px;
     right: 17px;
   }
-
-  #go span,
-  .winning-message button span {
-    position: relative;
-    bottom: 1.2rem;
-    right: 5px;
-  }
 }
+
+/* BUGFIX- Bf - affichage suivant*/
 
 @media screen and (min-width: 769px) and (max-width: 980px) {
   :root {
