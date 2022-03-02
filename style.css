@@ -936,17 +936,13 @@ footer a {
     margin: 1rem 0;
   }
 
-  .playersName {
-    margin-top: 1vh;
-  }
-
   .playersName p {
     font-size: 1.5rem;
     margin: 0 0.5rem;
   }
 
   #setPlayersName p {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     margin: 0.8rem 0.5rem;
   }
 
@@ -958,7 +954,7 @@ footer a {
 
   #username1,
   #username2 {
-    width: 100px;
+    width: 150px;
   }
 
   footer {
