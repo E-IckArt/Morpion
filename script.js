@@ -114,13 +114,13 @@ function endGame(draw) {
     cup.classList.add('show');
     // Increments the correct counter depending on the active player
     activePlayer ? oCounter++ : xCounter++;
-    // Displays counter status
-    document.getElementById('xCounter').textContent = xCounter;
-    document.getElementById('oCounter').textContent = oCounter;
-    /* Display player's name in tablescore */
-    document.getElementById('perso1').textContent = player1;
-    document.getElementById('perso2').textContent = player2;
   }
+  // Displays counter status
+  document.getElementById('xCounter').textContent = xCounter;
+  document.getElementById('oCounter').textContent = oCounter;
+  /* Display player's name in tablescore */
+  document.getElementById('perso1').textContent = player1;
+  document.getElementById('perso2').textContent = player2;
   // Adds the .show class to the .winning-message class to activate the message
   winningMessageElement.classList.add('show');
 }
