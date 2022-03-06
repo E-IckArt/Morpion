@@ -90,9 +90,9 @@ h2 {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
@@ -402,7 +402,6 @@ footer {
 
 /* --------------- DEFINE BUTTONS'S STYLE --------------- */
 #go,
-#goToGame,
 #startButton,
 #restartButton,
 #resetButton {
@@ -422,8 +421,13 @@ footer {
   cursor: pointer;
 }
 
+#goToGame {
+  background-color: #172b47;
+  border: none;
+  cursor: pointer;
+}
+
 #go:hover,
-#goToGame:hover,
 #startButton:hover,
 #restartButton:hover,
 #resetButton:hover {
@@ -432,6 +436,7 @@ footer {
 }
 
 #go img,
+#startButton img,
 .winning-message button img {
   width: 40px;
   position: relative;
@@ -439,14 +444,29 @@ footer {
   right: 8px;
 }
 
+#goToGame img {
+  width: 40px;
+}
+
 .winning-message button img {
   border-radius: 40%;
+}
+
+#play {
+  width: 40px;
+  height: auto;
 }
 
 #go span,
 .winning-message button span {
   position: relative;
   bottom: 8px;
+}
+
+#startButton span {
+  position: relative;
+  bottom: 5px;
+  font-weight: 600;
 }
 
 /* --------------- DEFINE THE FOOTER --------------- */
@@ -473,18 +493,15 @@ footer a {
 /* /////////////////////////                             /////////////////////*/
 /* ///////////////////////////////////////////////////////////////////////////*/
 
-@media screen and (max-width: 345px) {
+@media screen and (max-width: 344px) {
   :root {
     --cell-size: 60px;
-  }
-
-  html {
     font-size: 12px;
   }
+
   body {
     background-color: #172b47;
     width: 100vw;
-    margin: 0;
   }
 
   header {
@@ -516,17 +533,22 @@ footer a {
 
   #setPlayersName p {
     font-size: 1rem;
-    margin: 0.8rem 0.8rem;
+    margin: 0.8rem 1rem;
   }
 
   #setPlayersName div > div,
   #setPlayersName input {
     margin: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  #setPlayersName input {
+    font-size: 1.2rem;
   }
 
   .board {
     width: 100%;
-    height: 30vh;
+    height: 40vh;
   }
 
   /* --------------- DEFINE THE WINNING MESSAGE --------------- */
@@ -552,7 +574,7 @@ footer a {
   }
 
   #rules div {
-    width: 280px;
+    width: 80vw;
     margin: 0;
     padding: 1rem;
     font-size: 1rem;
@@ -561,7 +583,6 @@ footer a {
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
   #go,
-  #goToGame,
   #startButton,
   #restartButton,
   #resetButton {
@@ -577,10 +598,10 @@ footer a {
   }
 
   #startButton {
-    margin: 1rem 0;
     width: 100%;
-    height: 12vh;
     font-size: 1.5rem;
+    margin: 0;
+    padding: 0 1rem;
   }
 
   #go img,
@@ -588,6 +609,14 @@ footer a {
     width: 30px;
     top: 2px;
     right: 8px;
+  }
+
+  #goToGame img {
+    width: 30px;
+  }
+
+  #startButton img {
+    right: 0;
   }
 
   #restartButton img {
@@ -611,6 +640,10 @@ footer a {
     position: relative;
     bottom: 9px;
     right: 5px;
+  }
+
+  #startButton span {
+    bottom: 10px;
   }
 }
 
@@ -700,7 +733,6 @@ footer a {
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
   #go,
-  #goToGame,
   #startButton,
   #restartButton,
   #resetButton {
@@ -729,6 +761,10 @@ footer a {
     right: 8px;
   }
 
+  #goToGame img {
+    width: 30px;
+  }
+
   #restartButton img,
   #resetButton img {
     border-radius: 30%;
@@ -752,15 +788,11 @@ footer a {
 
 @media screen and (min-width: 375px) and (max-width: 480px) {
   :root {
-    --cell-size: 100px;
+    --cell-size: 80px;
     --mark-size: calc(var(--cell-size) * 0.9);
+    font-size: 12px;
   }
 
-  html {
-    box-sizing: border-box;
-    font-size: 12px;
-    margin: 0;
-  }
   body {
     height: 100vh;
     width: 100vw;
@@ -855,7 +887,6 @@ footer a {
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
   #go,
-  #goToGame,
   #startButton,
   #restartButton,
   #resetButton {
@@ -873,8 +904,9 @@ footer a {
   }
 
   #startButton {
-    margin: 0 0 0 2rem;
-    height: 17vh;
+    font-size: 1.5rem;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   #go img,
@@ -897,6 +929,10 @@ footer a {
     right: 17px;
   }
 
+  #startButton span {
+    bottom: 10px;
+  }
+
   #go span,
   .winning-message button span {
     position: relative;
@@ -909,27 +945,8 @@ footer a {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   :root {
-    --cell-size: 90px;
+    --cell-size: 80px;
     --mark-size: calc(var(--cell-size) * 0.9);
-  }
-
-  html {
-    box-sizing: border-box;
-    font-size: 16px;
-    margin: 0;
-  }
-  body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-  }
-
-  header {
-    width: 100vw;
-  }
-
-  header section {
-    width: 100%;
   }
 
   h2 {
@@ -937,7 +954,7 @@ footer a {
   }
 
   .playersName p {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 0 0.5rem;
   }
 
@@ -1001,7 +1018,6 @@ footer a {
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
   #go,
-  #goToGame,
   #startButton,
   #restartButton,
   #resetButton {
@@ -1010,9 +1026,20 @@ footer a {
     margin: 0.5rem 0;
   }
 
+  #startButton {
+    width: 200px;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: larger;
+  }
+
   #go span {
     position: relative;
     top: 2px;
+  }
+
+  #startButton span {
+    bottom: 8px;
   }
 
   #go img,
@@ -1046,11 +1073,6 @@ footer a {
     --mark-size: calc(var(--cell-size) * 0.9);
   }
 
-  html {
-    box-sizing: border-box;
-    font-size: 16px;
-    margin: 0;
-  }
   body {
     height: 100vh;
     width: 100vw;
@@ -1096,7 +1118,6 @@ footer a {
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
   #go,
-  #goToGame,
   #startButton,
   #restartButton,
   #resetButton {
@@ -1130,7 +1151,13 @@ footer a {
   }
 }
 
-@media screen and (min-width: 981px) and (max-width: 1680px) {
+@media screen and (min-width: 941px) and (max-width: 981px) {
+  #setPlayersName div {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 982px) and (max-width: 1380px) {
   :root {
     --cell-size: 100px;
     --mark-size: calc(var(--cell-size) * 0.9);
@@ -1144,16 +1171,105 @@ footer a {
     font-size: 1.8rem;
   }
 
+  #setPlayersName div > div {
+    font-size: 1.3rem;
+    margin: 0.8rem 0;
+  }
+
+  #setPlayersName input {
+    font-size: 1rem;
+  }
+
+  #setPlayersName p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  h2 {
+    margin: 1.5rem 0;
+  }
+
+  #board {
+    height: 43vh;
+  }
+
+  /* --------------- DEFINE GAME RULES SECTION --------------- */
+
+  #rules div {
+    width: 50vw;
+    margin: 0;
+    padding: 2rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 400px;
+  }
+
+  /* --------------- DEFINE BUTTONS'S STYLE --------------- */
+  #go,
+  #startButton,
+  #restartButton,
+  #resetButton {
+    font-size: 1.8rem;
+    width: 60%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    min-width: fit-content;
+    height: 8vh;
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  #startButton {
+    margin: 0;
+    padding: 0rem 1rem;
+    font-size: 1.5rem;
+  }
+
+  #go {
+    margin-bottom: 0;
+  }
+
+  #go img,
+  .winning-message button img {
+    width: 35px;
+    position: relative;
+    top: -8px;
+    right: 5px;
+  }
+
+  #go span,
+  .winning-message button span {
+    position: relative;
+    bottom: 1rem;
+    right: 5px;
+  }
+}
+
+@media screen and (min-width: 1381px) and (max-width: 1680px) {
+  :root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * 0.9);
+  }
+
+  .playersName {
+    margin: 1rem 0 0;
+  }
+
+  .playersName p {
+    font-size: 1.6rem;
+  }
+
   #setPlayersName {
     margin: 0 0 1rem;
   }
 
-  #setPlayersName div {
-    font-size: 1rem;
+  #setPlayersName p {
+    margin: 0.5em 0 0.5em;
   }
 
-  #setPlayerName p {
-    margin: 0 0 1rem;
+  #setPlayersName div > div,
+  #setPlayersName input {
+    font-size: 1.2rem;
   }
 
   h2 {
@@ -1177,7 +1293,6 @@ footer a {
 
   /* --------------- DEFINE BUTTONS'S STYLE --------------- */
   #go,
-  #goToGame,
   #startButton,
   #restartButton,
   #resetButton {
@@ -1194,9 +1309,11 @@ footer a {
   #startButton {
     margin: 0;
     padding: 0 1rem;
+    width: 280px;
   }
 
   #go {
+    font-size: 1.2rem;
     margin-bottom: 0;
   }
 
@@ -1208,10 +1325,12 @@ footer a {
     right: 5px;
   }
 
-  #go span,
-  .winning-message button span {
+  #go span {
     position: relative;
     bottom: 1rem;
-    right: 5px;
+  }
+  .winning-message button span {
+    position: relative;
+    bottom: 0.8rem;
   }
 }
