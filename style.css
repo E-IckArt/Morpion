@@ -1065,8 +1065,6 @@ footer a {
   }
 }
 
-/* BUGFIX- Bf - affichage suivant*/
-
 @media screen and (min-width: 769px) and (max-width: 980px) {
   :root {
     --cell-size: 100px;
